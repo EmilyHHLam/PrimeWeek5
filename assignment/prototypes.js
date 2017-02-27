@@ -36,7 +36,7 @@ somethingFun.isHappy = function(mood){
 };
 console.log("Another method to somethingFun with a boolean argument: ");
 somethingFun.isHappy('happy');
-
+console.log("--------------------------------------------------");
 
 // DO NOT TOUCH CODE BELOW
 // for purpose of the test files only
