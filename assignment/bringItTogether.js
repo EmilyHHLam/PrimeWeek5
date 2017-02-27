@@ -8,11 +8,21 @@ function convertRooms() {
   var roomsArray = [[20, 10, 10, 'red'], [24, 10, 14, 'blue'], [23, 8, 11, 'black'], [18, 5, 13, 'blue']];
 
   console.log(roomsArray);
-
   // Convert each room array into a Room object
   // Write code here, remember to log the new object you create at the end of
   // each iteration.
+
+  for (var i =0; i<roomsArray.length; i++){
+
+     roomObj = new Room(roomsArray[i]);
+     //create objects of above 4 arrays
+     console.log(roomObj);
+   }
+
+ return roomObj;
+
 }
+console.log("--------------------------------------------------");
 
 /**
  * Represents a classroom at Prime
@@ -26,6 +36,10 @@ function convertRooms() {
 function Room(roomArray) {
   // Write constructor logic here to convert the array into a Room object
   // You will need to also create RollingChair and Cube objects!
+  this.capacity = roomArray[0];
+  this.rollingChairs = roomArray[1];
+  this.cubes = roomArray[2];
+  this.color = roomArray[3];
 }
 
 /**
@@ -36,8 +50,14 @@ function Room(roomArray) {
 **/
 function RollingChair(type, color) {
   // Write constructor logic here to create a single rolling chair object
-}
+  this.type = type;
+  this.color = color;
 
+}
+var rollingChairObj = new RollingChair('boss fabric','blue');
+console.log("Rolling chair object is: ");
+console.log(rollingChairObj);
+console.log("--------------------------------------------------");
 /**
  * Represents a Cube seat
  * @constructor
@@ -46,9 +66,22 @@ function RollingChair(type, color) {
 **/
 function Cube(length) {
   // Write constructor logic here to create a single cube seat object
+  this.length = length;
+  this.setVolume = function(){
+    return Math.pow(this.length,3);
+  };
 }
 
-// -- DON'T TOUCH CODE BELOW --
+var cubeObj = new Cube(4);
+console.log('The single cube seat object is ');
+console.log(cubeObj);
+cubeObj.setVolume();
+console.log('and its volume is ');
+console.log(cubeObj.setVolume());
+
+
+
+//-- DON'T TOUCH CODE BELOW --
 module.exports = {
   Room: Room,
   convertRooms: convertRooms,
